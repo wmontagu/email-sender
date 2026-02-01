@@ -1,0 +1,211 @@
+{
+    "neurofeedback-outreach": {
+        "subject": "CS Student Interested in Neurofeedback: Looking for Advice",
+        "template": "neurofeedback.txt",
+        "recipients": [
+            {
+                "email": "youngk@pitt.edu",
+                "title": "Professor Young",
+                "fill_items": ["Your work on rtfMRI neurofeedback for depression caught my attention as a promising path."]
+            },
+            {
+                "email": "gsiegle@pitt.edu",
+                "title": "Professor Siegle",
+                "fill_items": ["Moreover, your focus on PTSD and dissociation is the closest to my interests that I've found."]
+            },
+            {
+                "email": "collinger@pitt.edu",
+                "title": "Professor Collinger",
+                "fill_items": ["Moreover, your work on brain-computer interfaces for restoring function is deeply inspiring to me."]
+            },
+            {
+                "email": "abs21@pitt.edu",
+                "title": "Professor Schwartz",
+                "fill_items": ["Moreover, your pioneering BCI research with paralyzed patients is extremely exciting to me."]
+            },
+            {
+                "email": "apb10@pitt.edu",
+                "title": "Professor Batista",
+                "fill_items": ["Moreover, your research on the neural constraints of learning is something that I'd love to understand as best I can."]
+            },
+            {
+                "email": "rag53@pitt.edu",
+                "title": "Dr. Gaunt",
+                "fill_items": ["Your work on restoring sensation through brain stimulation represents the kind of restorative technology I'd love to help develop or change people lives with."]
+            },
+            {
+                "email": "byronyu@cmu.edu",
+                "title": "Professor Yu",
+                "fill_items": ["Moreover, your research on how internal states affect learning through BCIs fascinates me."]
+            },
+            {
+                "email": "schase@cmu.edu",
+                "title": "Professor Chase",
+                "fill_items": ["Your work on neurofeedback strategies for motor learning has clear therapeutic implications that I'd love to explore."]
+            },
+            {
+                "email": "dweber@andrew.cmu.edu",
+                "title": "Professor Weber",
+                "fill_items": ["Your work on neuroplasticity training is something fundamental that I'd love to begin to understand."]
+            },
+            {
+                "email": "mjust@andrew.cmu.edu",
+                "title": "Professor Just",
+                "fill_items": ["Your fMRI research on thought identification could inform the basis for therapeutic approaches."]
+            },
+            {
+                "email": "timothyv@andrew.cmu.edu",
+                "title": "Professor Verstynen",
+                "fill_items": ["Your research on skill learning and neural pathways is in an area I'd love to understand better."]
+            },
+            {
+                "email": "lwehbe@cmu.edu",
+                "title": "Professor Wehbe",
+                "fill_items": ["Moreover, as an AI major, your machine learning approaches to understanding brain activity are highly relevant for me."]
+            },
+            {
+                "email": "mattsmith@cmu.edu",
+                "title": "Professor Smith",
+                "fill_items": ["Your work on visual perception and neural population coding is compelling and closely related."]
+            },
+            {
+                "email": "albarth@andrew.cmu.edu",
+                "title": "Professor Barth",
+                "fill_items": ["Your research on neural plasticity and how experience transforms neurons is directly relevant to what I want to understand."]
+            },
+            {
+                "email": "jtsay@andrew.cmu.edu",
+                "title": "Professor Tsay",
+                "fill_items": ["Your work on motor learning and rehabilitation applications is inspiring and deeply related."]
+            },
+            {
+                "email": "phillipsml@upmc.edu",
+                "title": "Professor Phillips",
+                "fill_items": ["Your neuroimaging work on mood disorders and emotion regulation is highly relevant; it would be amazing to get the chance to discuss it."]
+            },
+            {
+                "email": "lunab@upmc.edu",
+                "title": "Professor Luna",
+                "fill_items": ["Your research on adolescent brain development and psychiatric vulnerability is fascinating and deeply related."]
+            },
+            {
+                "email": "gianaros@pitt.edu",
+                "title": "Professor Gianaros",
+                "fill_items": ["Moreover, your work on stress, brain activity, and cardiovascular health gives me hope that you might have insights of your own on how to advance this field."]
+            },
+            {
+                "email": "ahmaris@upmc.edu",
+                "title": "Professor Ahmari",
+                "fill_items": ["Your research on neural mechanisms of compulsive behavior is fascinating and deeply relevant to neurofeedback."]
+            },
+            {
+                "email": "graceaa@pitt.edu",
+                "title": "Professor Grace",
+                "fill_items": ["Your work on basal ganglia and psychiatric disorders has been foundational to the field, and I'd love to discuss it with you sometime."]
+            },
+            {
+                "email": "fiez@pitt.edu",
+                "title": "Professor Fiez",
+                "fill_items": ["Your neuroimaging research on language, working memory, and learning is deeply related to how trauma might impact the brain."]
+            },
+            {
+                "email": "ladouceurcd@upmc.edu",
+                "title": "Professor Ladouceur",
+                "fill_items": ["Your work on emotional development and anxiety in adolescents has strong intersections."]
+            },
+            {
+                "email": "tarr@cmu.edu",
+                "title": "Professor Tarr",
+                "fill_items": ["Your cognitive neuroscience research on perception and brain science is impressive and deeply related."]
+            },
+            {
+                "email": "tai@cnbc.cmu.edu",
+                "title": "Professor Lee",
+                "fill_items": ["Your computational neuroscience work bridges neuroscience and AI, my major, in fascinating ways."]
+            },
+            {
+                "email": "bkm@andrew.cmu.edu",
+                "title": "Professor Mahon",
+                "fill_items": ["Your research on brain organization and recovery from injury is highly relevant to this field."]
+            },
+            {
+                "email": "plaut@cmu.edu",
+                "title": "Professor Plaut",
+                "fill_items": ["Your computational modeling of neural basis of cognition is highly relevant to this field."]
+            },
+            {
+                "email": "xaqlab@cmu.edu",
+                "title": "Professor Pitkow",
+                "fill_items": ["Your theoretical neuroscience work on neural computation is foundational and something I'd love to learn more about."]
+            },
+            {
+                "email": "svyas@andrew.cmu.edu",
+                "title": "Professor Vyas",
+                "fill_items": ["Moreover, your work on neural dynamics and brain-computer interfaces is highly relevant to this field, and something I'd love to learn more about."]
+            },
+            {
+                "email": "eyttri@andrew.cmu.edu",
+                "title": "Professor Yttri",
+                "fill_items": ["Your research on neural circuits underlying behavior is highly relevant."]
+            }
+        ]
+    },
+    "neurofeedback-outreach2": {
+        "subject": "CS Student Interested in Neurofeedback: Looking for Advice",
+        "template": "neurofeedback.txt",
+        "recipients": [
+                {
+                    "email": "just@cmu.edu",
+                    "title": "Professor Just",
+                    "fill_items": ["Your fMRI research on thought identification could inform therapeutic approaches."]
+                },
+                {
+                    "email": "dougweber@cmu.edu",
+                    "title": "Professor Weber",
+                    "fill_items": ["Your work on neuroplasticity training is something fundamental that I'd love to begin to understand."]
+                },
+                {
+                    "email": "jtsay@andrew.cmu.edu",
+                    "title": "Professor Tsay",
+                    "fill_items": ["Your work on motor learning and rehabilitation applications is inspiring and deeply related."]
+                },
+                {
+                    "email": "michaeltarr@cmu.edu",
+                    "title": "Professor Tarr",
+                    "fill_items": ["Your cognitive neuroscience research on perception and brain science is impressive and deeply related."]
+                },
+                {
+                    "email": "bmahon@andrew.cmu.edu",
+                    "title": "Professor Mahon",
+                    "fill_items": ["Your research on brain organization and recovery from injury is highly relevant to this field."]
+                },
+                {
+                    "email": "svyas@cmu.edu",
+                    "title": "Professor Vyas",
+                    "fill_items": ["Your work on neural dynamics and brain-computer interfaces is highly relevant and something I'd love to learn more about."]
+                }
+        ]
+    },
+    "neurofeedback-outreach3": {
+        "subject": "CS Student Interested in Neurofeedback: Looking for Advice",
+        "template": "neurofeedback.txt",
+        "recipients": [
+                {
+                    "email": "jstsay@cmu.edu",
+                    "title": "Professor Tsay",
+                    "fill_items": ["Your work on motor learning and rehabilitation applications is inspiring and deeply related."]
+                }
+        ]
+    },
+    "william": {
+        "subject": "CS Student Interested in Neurofeedback: Looking for Advice",
+        "template": "neurofeedback.txt",
+        "recipients": [
+                {
+                    "email": "wmontagu@andrew.cmu.edu",
+                    "title": "W Mans",
+                    "fill_items": ["It works!"]
+                }
+        ]
+    }
+}

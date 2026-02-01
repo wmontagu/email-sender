@@ -1,0 +1,9 @@
+name: email-sender
+channels:
+  - conda-forge
+dependencies:
+  - google-api-python-client
+  - google-auth-oauthlib
+  - python=3.14
+
+prefix: "/home/hamza/.local/share/mamba/envs/email-sender"
