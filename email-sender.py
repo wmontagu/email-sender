@@ -12,6 +12,7 @@ Setup:
 """
 
 import os
+os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
 import sys
 import json
 import base64
@@ -155,7 +156,7 @@ def fill_placeholders(text, fill_items):
     return result
 
 
-def log_email(to, subject, body, list_name=None):
+def log_email(to, subject, body, list_name=None, cc=None, bcc=None):
     """Log sent email details to the log file."""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open(LOG_FILE, 'a', encoding='utf-8') as f:
@@ -164,24 +165,36 @@ def log_email(to, subject, body, list_name=None):
         if list_name:
             f.write(f"List: {list_name}\n")
         f.write(f"To: {to}\n")
+        if cc:
+            cc_str = ', '.join(cc) if isinstance(cc, list) else cc
+            f.write(f"CC: {cc_str}\n")
+        if bcc:
+            bcc_str = ', '.join(bcc) if isinstance(bcc, list) else bcc
+            f.write(f"BCC: {bcc_str}\n")
         f.write(f"Subject: {subject}\n")
         f.write("-" * 40 + "\n")
         f.write(body)
         f.write("\n" + "=" * 60 + "\n\n")
 
 
-def create_message(sender, to, subject, body_text, body_html=None, title=None, fill_items=None):
-    """Create an email message with optional title greeting and placeholder filling."""
+def create_message(sender, to, subject, body_text, body_html=None, title=None, fill_items=None, cc=None, bcc=None):
+    """Create an email message with optional title greeting and placeholder filling.
+
+    Args:
+        cc: Single email address or list of email addresses to CC
+        bcc: Single email address or list of email addresses to BCC
+    """
     if fill_items is None:
         fill_items = []
 
-    # Fill placeholders in body text and HTML
+    # Fill placeholders in subject, body text, and HTML
+    processed_subject = fill_placeholders(subject, fill_items)
     processed_text = fill_placeholders(body_text, fill_items)
     processed_html = fill_placeholders(body_html, fill_items) if body_html else None
 
     # Prepend greeting if title is provided
     if title:
-        processed_text = f"Dear {title},\n\n{processed_text}"
+        processed_text = f"Hi {title},\n\n{processed_text}"
         if processed_html:
             # Insert greeting after <body> tag
             processed_html = processed_html.replace('<body>', f'<body>\n<p>Dear {title},</p>\n', 1)
@@ -195,27 +208,43 @@ def create_message(sender, to, subject, body_text, body_html=None, title=None, f
 
     message['to'] = to
     message['from'] = sender
-    message['subject'] = subject
+    message['subject'] = processed_subject
+
+    # Add CC if provided
+    if cc:
+        if isinstance(cc, list):
+            message['cc'] = ', '.join(cc)
+        else:
+            message['cc'] = cc
+
+    # Add BCC if provided
+    if bcc:
+        if isinstance(bcc, list):
+            message['bcc'] = ', '.join(bcc)
+        else:
+            message['bcc'] = bcc
 
     # Encode as base64
     raw = base64.urlsafe_b64encode(message.as_bytes()).decode()
     return {'raw': raw}
 
 
-def send_email(service, sender, to, subject, body_text, body_html=None, title=None, fill_items=None, list_name=None):
+def send_email(service, sender, to, subject, body_text, body_html=None, title=None, fill_items=None, list_name=None, cc=None, bcc=None):
     """Send an email and return the result."""
     try:
-        message = create_message(sender, to, subject, body_text, body_html, title, fill_items)
+        message = create_message(sender, to, subject, body_text, body_html, title, fill_items, cc, bcc)
         result = service.users().messages().send(userId='me', body=message).execute()
-        print(f"✓ Email sent to {to} (Message ID: {result['id']})")
+        cc_info = f", CC: {cc if isinstance(cc, str) else ', '.join(cc)}" if cc else ""
+        print(f"✓ Email sent to {to}{cc_info} (Message ID: {result['id']})")
 
-        # Log the sent email with processed body
+        # Log the sent email with processed subject and body
         if fill_items is None:
             fill_items = []
+        logged_subject = fill_placeholders(subject, fill_items)
         logged_body = fill_placeholders(body_text, fill_items)
         if title:
             logged_body = f"Dear {title},\n\n{logged_body}"
-        log_email(to, subject, logged_body, list_name)
+        log_email(to, logged_subject, logged_body, list_name, cc, bcc)
 
         return result
     except Exception as e:
@@ -230,13 +259,17 @@ def send_to_list(service, sender, recipients, subject, body_text, body_html=None
         - email: recipient email address
         - title: greeting title (e.g., "Mr. Smith") for "Dear <title>,"
         - fill_items: list of strings to replace {} placeholders sequentially
+        - cc: (optional) single email or list of emails to CC
+        - bcc: (optional) single email or list of emails to BCC
     """
     results = []
     for recipient in recipients:
         email = recipient['email']
         title = recipient.get('title')
         fill_items = recipient.get('fill_items', [])
-        result = send_email(service, sender, email, subject, body_text, body_html, title, fill_items, list_name)
+        cc = recipient.get('cc')
+        bcc = recipient.get('bcc')
+        result = send_email(service, sender, email, subject, body_text, body_html, title, fill_items, list_name, cc, bcc)
         results.append((email, result))
 
     # Summary
@@ -299,7 +332,7 @@ def send_email_lists(sender, email_lists, list_names=None):
 # CONFIGURATION - Edit these values
 # =============================================================================
 
-SENDER_EMAIL = "hpereira@andrew.cmu.edu"  # Your CMU email
+SENDER_EMAIL = "wmontagu@andrew.cmu.edu"  # Your CMU email
 
 # Email lists are loaded from email_lists.json
 # Each list has: subject, template (filename in templates/ folder), recipients
@@ -327,5 +360,5 @@ if __name__ == "__main__":
     send_email_lists(
         sender=SENDER_EMAIL,
         email_lists=email_lists,
-        list_names=["william"]
+        list_names=["Coffee Chats 3"]
     )
